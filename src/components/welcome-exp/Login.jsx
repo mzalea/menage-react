@@ -1,14 +1,33 @@
 import React, { useState } from 'react';
 
-export const Login = () => {
+const Login = () => {
 
   const [email, setEmail,] = useState('');
-  const [pass, setPass] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email);    
-  }
+  
+    try {
+      const response = await fetch('http://localhost:4000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+  
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+  
 
   return (
     <form className="login-form" onSubmit={handleSubmit}>
@@ -31,8 +50,8 @@ export const Login = () => {
             type="password"
             id="password"
             placeholder="********"
-            value={pass}
-            onChange={(e) => setPass(e.target.value)}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
       </div>
@@ -42,3 +61,5 @@ export const Login = () => {
     </form>
   );
 }
+
+export default Login;
