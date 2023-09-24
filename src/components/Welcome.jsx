@@ -10,12 +10,22 @@ const Welcome = () => {
     };
 
     return (
-        <div className="form-container">
-            {isRegistering ? <Register /> : <Login />}
-            <p onClick={toggleForm}>{isRegistering ?
-                'Have an account? Click here.' :
-                'No account yet? Click here.'}
-            </p>
+        <div className="welcome-page">
+
+            <div className="side-content">
+            </div>
+
+            <div className="main-content">
+                <h2>{isRegistering ? 'Sign up for Menage' : 'Sign in to Menage'}</h2>
+                <div className="form-container">
+                    {isRegistering ? <Register /> : <Login />}
+                    <p onClick={toggleForm}>{isRegistering ?
+                        'Have an account? Click here.' :
+                        'No account yet? Click here.'}
+                    </p>
+                </div>
+            </div>
+            
         </div>
     );
 }

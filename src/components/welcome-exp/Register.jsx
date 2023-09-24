@@ -31,64 +31,60 @@ const Register = () => {
   };
 
   return (
-    <div className="register-container">
+    <form onSubmit={handleSubmit}>
 
-      <form className="register-form" onSubmit={handleSubmit}>
-
-        <div className="form-body">
-          <div className="email">
-            <label className="form_label" htmlFor="email">Primary Email</label>
-            <input
-              className="form_input"
-              type="email"
-              id="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="user-name">
-            <label className="form_label" htmlFor="name">Display Name</label>
-            <input
-              className="form_input"
-              type="text"
-              id="name"
-              placeholder="Display Name"
-              value={display_name}
-              onChange={(e) => setDisplayname(e.target.value)}
-            />
-          </div>
-          <div className="password">
-            <label className="form_label" htmlFor="password">Password</label>
-            <input
-              className="form_input"
-              type="password"
-              id="password"
-              placeholder="********"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div className="password-confirm">
-            <label className="form_label" htmlFor="confirmPassword">Confirm Password</label>
-            <input
-              className="form_input"
-              type="password"
-              id="confirmPassword"
-              placeholder="********"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </div>
+      <div className="form-body">
+        <div className="email">
+          <label className="form_label" htmlFor="email">Primary Email</label>
+          <input
+            className="form_input"
+            type="email"
+            id="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
-        
-        <div className="form-footer">
-          <button type="submit" className="btn">Register</button>
+        <div className="user-name">
+          <label className="form_label" htmlFor="name">Display Name</label>
+          <input
+            className="form_input"
+            type="text"
+            id="name"
+            placeholder="Display Name"
+            value={display_name}
+            onChange={(e) => setDisplayname(e.target.value)}
+          />
         </div>
+        <div className="password">
+          <label className="form_label" htmlFor="password">Password</label>
+          <input
+            className="form_input"
+            type="password"
+            id="password"
+            placeholder="********"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div className="password-confirm">
+          <label className="form_label" htmlFor="confirmPassword">Confirm Password</label>
+          <input
+            className="form_input"
+            type="password"
+            id="confirmPassword"
+            placeholder="********"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+        </div>
+      </div>
+      
+      <div className="form-footer">
+        <button type="submit" className="btn">Register</button>
+      </div>
 
-      </form>
-
-    </div>
+    </form>
   );
 }
 
